@@ -1,12 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{% block title %}{% endblock title %}</title>
+
+    <!-- Fonts awesome cdn -->
+    <script src="https://kit.fontawesome.com/d4c395f981.js" crossorigin="anonymous"></script>
+
+    <!--CSS HERE-->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/baseStyle.css' %}">
+
+    {% block css %}{% endblock css %}
+
 </head>
+
 <body>
-    <h1>worked</h1>
+    <!--Navbar starts HERE-->
+    <header>
+        <nav>
+            <div class="bg"></div>
+
+            <div class="logo"><a href="">FFBakery</a></div>
+
+            <ul class="nav-items">
+
+                <li class="item active">
+                    <a href="{% url 'home' %}">Home</a>
+                </li>
+
+                <li class="item drop-down">
+                    <a>Categories
+                    <i class="fas fa-caret-down"></i>
+                    </a>
+                    <ul class="nav-list">
+                        <li><a href="">Cakes</a></li>
+                        <li><a href="">Cookies</a></li>
+                        <li><a href="">Cup Cakes</a></li>
+                        <li><a href="">Jar Cakes</a></li>
+                        <li><a href="">Tea Cakes</a></li>
+                    </ul>
+                </li>
+                <li class="item"><a href="{% url 'Login' %}">Login / SignUp</a></li>
+                <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+    <!--Navbar ends HERE-->
+
+
+    <!--Content  HERE-->
+    {% block content %}{% endblock content %}
+
+
+
+    <!--JS HERE-->
+    {% block js %}{% endblock js %}
+
 </body>
+
 </html>

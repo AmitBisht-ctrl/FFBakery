@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+    color: #fff;
+    user-select: none;
+}
+
+/* test */
+
+body{
+    background-color: #ffb3d9;
+}
+
+body::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 80%;
+    background-color: rgba(0,0,0,0.1);
+}
+/* test */
+
+/* General */
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ul{
+    list-style: none;
+}
+
+/* General Ends */
+
+nav{
+    position: relative;
+    background: #ffb3d9;
+    height: 4rem;
+}
+
+.bg::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 80%;
+    background-color: rgba(0,0,0,0.1);
+}
+
+
+
+.logo{
+    position: absolute;
+    top: 0;
+    left: 1.5ch;
+    
+    margin: 0.5ch 0.5ch 4ch 0.5ch;
+    
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    height: 100%;
+
+    transition: .3s ease;
+}
+
+.logo:hover{
+    transform: scale(1.1);
+}
+
+
+.nav-items{
+    position: absolute;
+    right: 0;
+    top: 0;
+    
+    margin: 0.5ch 3ch 0.5ch auto;
+
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+.nav-items .nav-list{
+    display: none;
+    visibility: none;
+
+}
+
+.nav-items li{
+    margin: auto 5px;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+}
+
+.nav-items li a{
+    
+    width: 100%;
+    border-radius: 20px;
+    padding: 5px 20px;
+}
+
+.nav-items li a:hover, 
+.nav-items a:hover i{
+    background: #fff;
+    color: #000;
+}
+
+.nav-items .drop-down{
+    position: relative;
+}
+
+
+.nav-items .drop-down:hover ul{
+    visibility: visible;
+    display: block;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    border-radius: 5%;
+    background: #ff80bf;
+}
+
+.nav-items .drop-down ul li:first-child
+{
+    padding-top: 10px;
+}
+
+.nav-items .drop-down ul li:last-child
+{
+    padding-bottom: 10px;
+}
