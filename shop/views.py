@@ -1,8 +1,13 @@
 from django.shortcuts import render
+from shop.models import *
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html')
+    category = Category.objects.all()
+    carousel = Carousel.objects.all().first()
+    
+    context = {'category': category, 'carousel':carousel}
+    return render(request, 'home.html',context)
 
 def contact(request):
     return render(request, 'contact.html')

@@ -24,7 +24,11 @@
         <nav>
             <div class="bg"></div>
 
-            <div class="logo"><a href="">FFBakery</a></div>
+            <div class="logo"><a href="" data-hover="FoodiesFootstepsBakery">FFBakery</a></div>
+            <label for="btn" class="icon">
+                <i class="fas fa-bars"></i>
+            </label>
+            <input type="checkbox" id="btn">
 
             <ul class="nav-items">
 
@@ -33,15 +37,13 @@
                 </li>
 
                 <li class="item drop-down">
-                    <a>Categories
-                    <i class="fas fa-caret-down"></i>
-                    </a>
+                    <label for="btn-1" class="show">Categories <i class="fas fa-caret-down"></i></label>
+                    <a>Categories <i class="fas fa-caret-down"></i></a>
+                    <input class="toggle" type="checkbox" id="btn-1">
                     <ul class="nav-list">
-                        <li><a href="">Cakes</a></li>
-                        <li><a href="">Cookies</a></li>
-                        <li><a href="">Cup Cakes</a></li>
-                        <li><a href="">Jar Cakes</a></li>
-                        <li><a href="">Tea Cakes</a></li>
+
+                        {% block categories %}{% endblock categories %}
+
                     </ul>
                 </li>
                 <li class="item"><a href="{% url 'Login' %}">Login / SignUp</a></li>

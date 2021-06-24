@@ -4,6 +4,36 @@
 
 {% load static %}
 
+
 {% block css %}
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet" href="{% static 'css/homeStyle.css' %}">
 {% endblock css %}
+
+
+{% block categories %}
+{% for cat in category %}
+<li><a href="">{{cat.category}}</a></li>
+{% endfor %}
+{% endblock categories %}
+
+
+{% block content %}
+
+<section class='sec'>
+    <div class="bg"></div>
+    <div class="content">
+        <div class="textBox">
+            <h2>Eat Home Baked 100% Eggless Cakes</h2>
+            <p>We deal in Premium home baked cakes made with extra love and hygiene. Our promise is to use superior quality ingredients to make your sugary celebration more special. We have a vast menu starting right from Choco balls to Cup Cakes, Cakes, CakeSickles and what not!
+            </p>
+
+            <a href="#" class="btn Ahover">Go To Shop Now</a>
+        </div>
+        <div class="imgBox">
+            <img class="img1" src="/media/{{carousel.TransparentImage}}" alt="">
+        </div>
+    </div>
+</section> 
+
+
+{% endblock content %}
