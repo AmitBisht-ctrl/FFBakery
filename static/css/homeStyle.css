@@ -9,7 +9,7 @@ section.sec{
 
 .content{
     position: relative;
-    display: flex;
+    /* display: flex; */
     /* background: red; */
 }
 
@@ -64,8 +64,16 @@ section.sec{
 
 .content img{
     max-width: 26ch;
+    /* transform: rotate(-10deg); */
+    transform: rotate(-10deg);
+    transition: 0.5s ease-in-out;
 }
 
+.content img:hover{
+    transform: rotate(0deg);
+}
+
+/* Extra Large Devices */
 @media (min-width: 2000px){
     .content img{
         max-width: 30ch;
@@ -74,3 +82,33 @@ section.sec{
         right: 7%;
     }
 }
+
+
+/* Mobile Deivces */
+@media (max-width: 1100px){
+    section.sec{
+        padding: initial;
+        padding: 3% 0;
+        height: auto;
+    }
+
+    .content{
+        flex-direction: column;
+    }
+
+    .content .textBox{
+        max-width: 100%;
+        margin: 10% 5%;
+    }
+
+    .content .imgBox{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        right: 0;
+
+    }
+}
+
+
