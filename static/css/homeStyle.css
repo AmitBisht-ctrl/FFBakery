@@ -66,7 +66,7 @@ section.sec{
     max-width: 26ch;
     /* transform: rotate(-10deg); */
     transform: rotate(-10deg);
-    transition: 0.5s ease-in-out;
+    transition: 0.7s ease-in-out;
 }
 
 .content img:hover{

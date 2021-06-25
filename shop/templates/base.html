@@ -32,8 +32,8 @@
 
             <ul class="nav-items">
 
-                <li class="item active">
-                    <a href="{% url 'home' %}">Home</a>
+                <li class="item">
+                    <a href="{% url 'home' %}" class="{% block activeHome %}{% endblock activeHome %}">Home</a>
                 </li>
 
                 <li class="item drop-down">
@@ -46,8 +46,8 @@
 
                     </ul>
                 </li>
-                <li class="item"><a href="{% url 'Login' %}">Login / SignUp</a></li>
-                <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                <li class="item"><a href="{% url 'Login' %}" class="{% block activeLogin %}{% endblock activeLogin %}">Login / SignUp</a></li>
+                <li><a href="#" class="{% block activeCart %}{% endblock activeCart %}"><i class="fas fa-shopping-cart"></i></a></li>
             </ul>
         </nav>
     </header>

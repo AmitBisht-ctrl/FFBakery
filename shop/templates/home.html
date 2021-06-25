@@ -4,6 +4,7 @@
 
 {% load static %}
 
+{% block activeHome %}active{% endblock activeHome %}
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/homeStyle.css' %}">
@@ -30,10 +31,43 @@
             <a href="#" class="btn Ahover">Go To Shop Now</a>
         </div>
         <div class="imgBox">
-            <img class="img1" src="/media/{{carousel.TransparentImage}}" alt="">
+            <img src="/media/{{carousels.0.TransparentImage}}" onclick="changeBgColor('{{carousels.0.LightBackgroundColor}}','{{carousels.0.DarkBackgroundColor}}')">
         </div>
     </div>
+
+
+
+    <ul class="thumb">
+            {% for carousel in carousels %}
+                <li class="thumblist" data-text="{{carousel.DisplayName}}">
+                    <img src="/media/{{carousel.TransparentImage}}" onclick="imgSlider('{{carousel.TransparentImage}}');changeBgColor('{{carousel.LightBackgroundColor}}','{{carousel.DarkBackgroundColor}}')" alt="">
+                </li>
+            {% endfor %}
+    </ul>
+
 </section> 
 
 
 {% endblock content %}
+
+
+{% block js %}
+    {% load static %}
+    <script>
+        document.onreadystatechange = function () {
+            if (document.readyState == "interactive") {
+                changeBgColor('{{carousels.0.LightBackgroundColor}}','{{carousels.0.DarkBackgroundColor}}')
+
+            const activeThumb = document.querySelector('.thumblist');
+            activeThumb.classList.add('active');
+        
+            const thumb = document.querySelector('ul.thumb');
+            console.log(thumb)
+            
+            }
+        }
+    </script>
+    
+    <script src="{% static 'js/homeScript.js' %}"></script>
+
+{% endblock js %}

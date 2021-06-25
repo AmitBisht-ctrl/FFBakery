@@ -102,7 +102,8 @@ nav{
 }
 
 .nav-items li a:hover, 
-.nav-items a:hover i{
+.nav-items a:hover i,
+.nav-items a.active{
     background: #fff;
     color: #000;
 }

@@ -1,12 +1,19 @@
 from django.shortcuts import render
 from shop.models import *
+import random
 
 # Create your views here.
 def home(request):
     category = Category.objects.all()
-    carousel = Carousel.objects.all().first()
+    carouselList = Carousel.objects.all()
+
+    carouselIndex = random.sample(range(0,len(carouselList)), k=4)
+
+    carousels = [carouselList[idx] for idx in carouselIndex]
+
+    print(carousels)
     
-    context = {'category': category, 'carousel':carousel}
+    context = {'category': category, 'carousels':carousels}
     return render(request, 'home.html',context)
 
 def contact(request):

@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 class Category(models.Model):
     sno = models.AutoField(primary_key=True)
     category = models.CharField(max_length=50)
+    Image = models.ImageField()
 
     class Meta:
         verbose_name_plural = 'Categories'
@@ -30,7 +31,8 @@ class Carousel(models.Model):
     sno = models.AutoField(primary_key=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     DisplayName = models.CharField(max_length=15)
-    BackgroundColor = models.CharField(max_length=50)
+    LightBackgroundColor = models.CharField(max_length=50)
+    DarkBackgroundColor = models.CharField(max_length=50)
     TransparentImage = models.ImageField()
 
     def __str__(self):
