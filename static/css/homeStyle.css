@@ -1,23 +1,22 @@
+/* Content Box here */
+
 section.sec{
     position: relative;
-    min-height: 93vh;
+    min-height: 90vh;
     padding: 7% 10% 8% 7%;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+    overflow: hidden;
+    color: #fff;
 }
 
 .content{
     position: relative;
-    /* display: flex; */
-    /* background: red; */
+
 }
 
 .content .textBox{
     max-width: 50%;
     margin: 3% 5%;
     height: 100%;
-    /* background: green; */
 }
 
 .content .textBox h2{
@@ -47,7 +46,7 @@ section.sec{
 }
 
 .content .textBox a:hover{
-    transform: scale(1.25);
+    transform: scale(1.15);
 }
 
 
@@ -59,12 +58,10 @@ section.sec{
     display: flex;
     align-items: center;
     padding: 1% 0% 3%;
-    /* background: yellow; */
 }
 
 .content img{
     max-width: 26ch;
-    /* transform: rotate(-10deg); */
     transform: rotate(-10deg);
     transition: 0.7s ease-in-out;
 }
@@ -72,8 +69,521 @@ section.sec{
 .content img:hover{
     transform: rotate(0deg);
 }
+/* Content Box Ends here */
 
-/* Extra Large Devices */
+
+/* Thumbs */
+
+.thumb{
+    /* display: list-item; */
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.thumb li{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    height: 70px;
+    width: 70px;
+    border: 1px solid;
+    padding: 5px;
+    list-style: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border:2px solid rgba(255, 255, 255, 0.25);
+}
+
+.thumb li.active{
+    border: 2px solid rgba(255, 255, 255, 1);
+}
+
+.thumb li::before{
+    position: absolute;
+    top: -8rem;
+    left: -10rem;
+    opacity: 0;
+    content: attr(data-text);
+    white-space: nowrap;
+    font-size: 5em;
+    color: rgba(0,0,0,0.09);
+    font-weight: 700;
+    pointer-events: none;
+}
+
+.thumb li.active::before{
+    opacity: 1;
+}
+
+.thumb li img{
+    max-width: 50px;
+}
+
+.thumb li:hover{
+    transform: scale(1.1);
+}
+
+/* Thumbs Ends here*/
+
+/* Social Icons here */
+.socialIcon{
+    position: fixed;
+    /* top: 50%;
+    transform: translateY(-50%); */
+    bottom: 2%;
+    right: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.socialIcon li{
+    list-style: none;
+}
+
+.socialIcon li a{
+    display: inline-block;
+    margin: 0.7rem;
+
+    transform: scale(1.3);
+    transition: 0.5s ease-out;
+}
+
+.socialIcon li a:hover,
+.socialIcon li a:focus{
+    outline: none;
+    transform: scale(2);
+}
+
+/* Social Icons ends here */
+
+/* Category Items/Selection Here*/
+
+.categoryIcons{
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.categoryIcons ul{
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 85%;
+    padding: 7% 0;
+}
+
+.categoryIcons ul .cat_item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 5% 5%;
+    flex-grow: 1;
+}
+
+.categoryIcons .cat_item li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.categoryIcons .cat_item img{
+    max-width: 80px;
+    transition: 0.4s ease;
+}
+
+.categoryIcons .cat_item img:hover{
+    transform: scale(1.4);
+}
+
+/* flower background added here */
+.categoryIcons{
+    min-height: 40vh;
+    background: #ffb3da;
+    position: relative;
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+div.categoryIcons .circle{
+    height: 30em;
+    min-width: 30em;
+    
+    border-radius: 50%;
+
+    background: #ffffff30;
+} 
+
+div.categoryIcons .circle::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 15em;
+    width: 15em;
+    
+    border-radius: 50%;
+
+    background: #ffffff30;
+}
+
+div.categoryIcons .circle::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 45em;
+    width: 45em;
+    
+    border-radius: 50%;
+
+    background: #ffffff30;
+}
+
+/* border zigzag pattern */
+.categoryIcons::after{
+    background: linear-gradient(-45deg, #ecf0f1 10px, transparent 0),
+    linear-gradient(45deg, #ecf0f1 10px, transparent 0);
+    
+    background-position: left bottom;
+    background-repeat: repeat-x;
+    background-size: 12px 32px;
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 25px;
+}
+
+
+/* Category Items/Selection Ends Here*/
+
+
+/* BestSellers Section Starts here */
+
+#heading{
+    padding: 40px 0;
+    text-align: center;
+    font-weight: 700;
+    color:burlywood !important;
+    background-color: #ecf0f1;
+    font-size: 3em;
+    font-family: poppins,sans-serif;
+}
+
+.underLineHeading{
+    border-bottom: 2px burlywood solid;
+}
+
+
+
+/* the Swiper Section inside the Trending Section*/
+
+.swiper-container .swiper-wrapper .swiper-slide a{
+    text-decoration: none;
+    
+}
+
+.swiper-container-3d .swiper-slide-shadow-right,
+.swiper-container-3d .swiper-slide-shadow-left {
+    background-image: none;
+}
+
+.cardContainer{
+    position: relative;
+    min-width: 100%;
+    background-color: #ecf0f1;
+    padding-bottom: 5%;
+}
+
+.swiper-slide {
+    width: 300px;
+    min-height: 400px;
+    margin: 30px 20px;
+    border-radius: 10px;
+    background-color: #eee;
+    overflow: hidden;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.3);
+
+    /* May need these values */
+    position: relative;
+
+}
+
+
+
+
+/* card here */
+
+.swiper-slide .slide-img{
+    height: 450px;
+    position: relative;
+}
+
+.swiper-slide .slide-img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    box-sizing: border-box;
+}
+
+.swiper-slide .detail-box{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    font-family: Calibri;
+}
+
+.type{
+    display: flex;
+    flex-direction: column;
+}
+
+.type a{
+    color: #222222;
+    margin: 5px 0px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    padding-right: 8px;
+    min-height: 5ch;
+}
+
+/* .type span{
+    color: rgba(26, 26, 26, 0.7);
+} */
+
+.price{
+    color: #333333;
+    font-weight: 600;
+    font-size: 1.1rem;
+    font-family: poppins;
+    letter-spacing: 0.5px;
+}
+
+.overlay{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(92,95,236,0.6); */
+    background-color: rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buy-btn{
+    width: 160px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: center;
+    background: #fff;
+    color: #252525;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-family: calibri;
+    border-radius: 20px;
+    
+    /* box-shadow: 2px 2px 30px rgba(0,0,0,0.2); */
+}
+
+.buy-btn:hover{
+    color: #fff;
+    background-color: rgb(255, 107, 129);
+    transition: all ease 0.3s;
+}
+
+.overlay{
+    visibility: hidden;
+}
+
+.slide-img:hover .overlay{
+    visibility: visible;
+    animation: fade 0.5s;
+}
+
+@keyframes fade{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+/* BestSellers Section Ends here */
+
+
+/* Table Section Starts here */
+
+.Table{
+    min-height: 500px;
+    background-color: #ffe6cc;
+    position: relative;
+    overflow: hidden;
+}
+
+.Table span{
+    color: burlywood;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-weight: 700;
+    color:burlywood;
+    font-size: 3em;
+    font-family: Oswald;
+}
+
+.table-img{
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    background-color: #b3e6ff;
+    min-height: 35%;
+    width: 100%;
+}
+
+.table-img img{
+    position: absolute;
+    max-width: 120px;
+}
+
+.table-img img.img1{
+    top: -35%;
+    right: 40%;
+    transform: translateX(60%);
+    -webkit-box-reflect: below -2px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(42, 29, 29, 0.4));
+}
+
+.table-img img.img2{
+    top: -35%;
+    left: 40%;
+    transform: translateX(-60%);
+    -webkit-box-reflect: below -2px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(42, 29, 29, 0.4));
+}
+
+
+/* Table Section Ends here */
+
+
+/* Footer Starts here */
+footer{
+    min-height: 25vh; 
+    background-color: #000066; 
+    margin-top: 3px;
+    color: blanchedalmond;
+    font-family: Lato;
+    position: relative;
+}
+
+.footer-content a{
+    text-decoration: none;
+    color: blanchedalmond;
+}
+
+.paymentSupports li i{
+    transform: scale(1.5);
+    color: blanchedalmond;
+}
+
+.paymentSupports li img{
+    transform: scale(1.5);
+    color: blanchedalmond;
+    filter: invert(1);
+}
+
+ul.ourLinks{
+    text-align: center;
+    margin: 2rem 0 1rem;
+}
+
+.footer-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-content h3{
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+
+.footer-content p{
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.footer-content ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.footer-content li{
+    margin: 0 1rem;
+}
+
+
+footer .socials{
+    margin-bottom: 2rem;
+}
+
+footer .theirLogo img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 50px 0 10px;
+}
+
+
+
+footer .footer-bottom{
+    font-size: .8rem;
+    padding: 1rem 0 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+/* Footer Ends Here */
+
+
+
+
+/*-------------------- Extra Large Devices ------------------------*/
 @media (min-width: 2000px){
     .content img{
         max-width: 30ch;
@@ -84,12 +594,17 @@ section.sec{
 }
 
 
-/* Mobile Deivces */
+/*--------------------Middle Mobile Deivces ------------------------*/
 @media (max-width: 1100px){
+    /* Section Content here */
     section.sec{
         padding: initial;
         padding: 3% 0;
         height: auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
 
     .content{
@@ -98,7 +613,7 @@ section.sec{
 
     .content .textBox{
         max-width: 100%;
-        margin: 10% 5%;
+        margin: 10% 10%;
     }
 
     .content .imgBox{
@@ -107,8 +622,105 @@ section.sec{
         align-items: center;
         justify-content: center;
         right: 0;
+    }
 
+    /* thumb Icons */
+    .thumb{
+        position: relative;
+        margin-top: 20%;
+        left: 0;
+        transform: none;
+    }
+    
+    .thumb li::before{
+        content: none;
+    }
+
+    /* social Icons */
+    .socialIcon{
+        right: 0;
+        background: rgba(0,0,0,0.1);
+        max-width: 50px;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    /* Table sections */
+    .table-img img.img1{
+        right: 35%;
+        transform: translateX(65%);
+    }
+
+    .table-img img.img2{
+        left: 35%;
+        transform: translateX(-65%);
     }
 }
 
 
+/* ---------------------------Mobile Devices------------------------- */
+@media (max-width:550px){
+    /* category Icons Size change */
+    .categoryIcons .cat_item img{
+        max-width: 60px;
+    }
+
+    .categoryIcons .cat_item li{
+        max-width: 80px;
+        max-height: 80px;
+    }
+
+    /* Thumb Icons size change */
+    .thumb li{
+        width: 60px;
+        height: 60px;
+    }
+
+    .thumb li img{
+        max-width: 40px;
+        max-height: 40px;
+    }
+    
+    /* Content Box Size Change */
+    .content img{
+        max-width: 15ch;
+        margin: 15% 0 7%;
+    }
+
+    .content .textBox h2{
+        font-size: 2.5rem;
+    }
+
+    .content .textBox p{
+        font-size: 1rem;
+    }
+
+    .content .textBox a{
+        font-size: .9rem;
+    }
+
+    /* NavBar hamburger size change */
+    nav .icon i{
+        transform: scale(0.8);
+    }
+
+    .Table span{
+        font-size: 2em;
+    }
+
+    .table-img img{
+        position: absolute;
+        max-width: 80px;
+    }
+
+    .table-img img.img1{
+        right: 30%;
+        transform: translateX(70%);
+    }
+    
+    .table-img img.img2{
+        left: 30%;
+        transform: translateX(-70%);
+    }
+    
+}

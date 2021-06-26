@@ -1,1 +1,67 @@
 {% extends 'base.html' %}
+
+{% block title %}Login-SignUp to FFBakery{% endblock title %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/loginStyle.css' %}">
+{% endblock css %}
+
+{% block activeLogin %}active{% endblock activeLogin %}
+
+<!--Category List Here-->
+{% block categories %}
+{% for cat in category %}
+<li><a href="">{{cat.category}}</a></li>
+{% endfor %}
+{% endblock categories %}
+
+
+{% block content %}
+
+    <div class="body">
+        <div class="container">
+            <div class="bluebg">
+                <div class="box signin">
+                    <h2>Already Have an Account?</h2>
+                    <button class="signinBtn">Sign In</button>
+                </div>
+                <div class="box signup">
+                    <h2>Don't Have an Account?</h2>
+                    <button class="signupBtn">Sign Up</button>
+                </div>
+            </div>
+            <div class="formBx">
+                <div class="form signinForm">
+                    <form action="{% url 'login' %}" method="POST">
+                        {% csrf_token %}
+                        <h3>Sign In</h3>
+                        <input type="text" placeholder="Username" name="username">
+                        <input type="password" placeholder="Password" name="password">
+                        <input type="submit" value="Login">
+                        <a href="" class="forgot">Forgot Password</a>
+                    </form>
+                </div>
+                <div class="form signupForm">
+                    <form action="{% url 'signup' %}" method="POST">
+                        {% csrf_token %}
+                        <h3>Sign Up</h3>
+                        {% load custom_tags %}
+                        {{form.username|remove_attr:'autofocus'}}
+                        {{form.email}}
+                        {{form.password1}}
+                        {{form.password2}}
+                        <input type="submit" value="Register">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+    <script src="{% static 'js/loginJs.js' %}"></script>
+{% endblock js %}
+

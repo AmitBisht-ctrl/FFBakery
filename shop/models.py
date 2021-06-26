@@ -48,7 +48,7 @@ class SoldProduct(models.Model):
     deliveryTime = models.DateTimeField(blank=True,null=True)
 
     def __str__(self):
-        return (self.product + ' ' + self.user)
+        return (self.product.ProductName + ' - Sold to - ' + self.user.username)
     
 class Like(models.Model):
     sno = models.AutoField(primary_key=True)
@@ -66,4 +66,6 @@ class Comment(models.Model):
     comment = models.TextField()
     date_time = models.DateTimeField(default=now())
 
+    def __str__(self):
+        return self.User + ' ' + self.product
 

@@ -41,12 +41,13 @@
                     <a>Categories <i class="fas fa-caret-down"></i></a>
                     <input class="toggle" type="checkbox" id="btn-1">
                     <ul class="nav-list">
-
-                        {% block categories %}{% endblock categories %}
-
+                        <div class="bg"></div>
+                        <div class="lists">
+                            {% block categories %}{% endblock categories %}
+                        </div>
                     </ul>
                 </li>
-                <li class="item"><a href="{% url 'Login' %}" class="{% block activeLogin %}{% endblock activeLogin %}">Login / SignUp</a></li>
+                <li class="item"><a href="{% url 'login' %}" class="{% block activeLogin %}{% endblock activeLogin %}">Login / SignUp</a></li>
                 <li><a href="#" class="{% block activeCart %}{% endblock activeCart %}"><i class="fas fa-shopping-cart"></i></a></li>
             </ul>
         </nav>

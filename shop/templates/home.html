@@ -4,13 +4,20 @@
 
 {% load static %}
 
+<!--Made active element Here-->
 {% block activeHome %}active{% endblock activeHome %}
 
+<!--CSS Link Here-->
 {% block css %}
+
+<!-- Link Swiper's CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
 <link rel="stylesheet" href="{% static 'css/homeStyle.css' %}">
+
 {% endblock css %}
 
-
+<!--Category List Here-->
 {% block categories %}
 {% for cat in category %}
 <li><a href="">{{cat.category}}</a></li>
@@ -18,6 +25,7 @@
 {% endblock categories %}
 
 
+<!--Main Content Here-->
 {% block content %}
 
 <section class='sec'>
@@ -31,7 +39,7 @@
             <a href="#" class="btn Ahover">Go To Shop Now</a>
         </div>
         <div class="imgBox">
-            <img src="/media/{{carousels.0.TransparentImage}}" onclick="changeBgColor('{{carousels.0.LightBackgroundColor}}','{{carousels.0.DarkBackgroundColor}}')">
+            <img src="/media/{{carousels.0.TransparentImage}}">
         </div>
     </div>
 
@@ -39,30 +47,161 @@
 
     <ul class="thumb">
             {% for carousel in carousels %}
-                <li class="thumblist" data-text="{{carousel.DisplayName}}">
-                    <img src="/media/{{carousel.TransparentImage}}" onclick="imgSlider('{{carousel.TransparentImage}}');changeBgColor('{{carousel.LightBackgroundColor}}','{{carousel.DarkBackgroundColor}}')" alt="">
+                <li class="" data-text="{{carousel.DisplayName}}">
+                    <img src="/media/{{carousel.TransparentImage}}" onclick="changeImg('/media/{{carousel.TransparentImage}}');changeBgColor('{{carousel.LightBackgroundColor}}','{{carousel.DarkBackgroundColor}}')" alt="">
                 </li>
             {% endfor %}
     </ul>
 
 </section> 
 
+<ul class="socialIcon">
+    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+    <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+</ul>
+
+<div class="categoryIcons">
+    <div class="circle"></div>
+    <ul>
+        {% for cat in category %}
+            <div class="cat_item">
+                <li>
+                    <img src="/media/{{cat.Image}}" alt="">
+                </li>
+                <span>{{cat.category}}</span>
+            </div>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- BestSeller Section Starts here -->
+<div id="heading"><span class="underLineHeading">Best Sellers</span></div>
+
+<!-- Swiper -->
+<div class="cardContainer">
+    <div class="swiper-container mySwiper">
+        <div class="swiper-wrapper">
+
+            <!-- Slider here -->
+            {% for bestseller in bestsellers %}
+            <div class="swiper-slide">
+
+                <!-- img Section of card here -->
+                <div class="slide-img">
+                    <img src="/media/{{bestseller.ProductImage}}" alt="">
+
+                    <!-- on hover effect color  -->
+                    <div class="overlay">
+                        <a href="" class="buy-btn">Buy Now</a>
+                    </div>
+                </div>
+
+                <!-- details of Product here Inside the card -->
+                <div class="detail-box">
+
+                    <div class="type">
+                        <a href="">{{bestseller.ProductName}}</a>
+                        {% comment %} <span>Coming Soon</span> {% endcomment %}
+                    </div>
+
+                    <a href="" class="price">Rs.{{bestseller.price}}</a>
+
+                </div>
+
+            </div>
+            {% endfor %}
+            <!-- swiper slide end -->
+
+
+        </div>
+
+        <!-- Pagination -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+    </div>
+    <!-- swiper Container end -->
+</div>
+<!-- cardContainer End -->
+
+<!-- BestSeller Section Ends here -->
+
+
+<!-- Call For Now Section -->
+
+<div class="Table">
+    <span class="underLineHeaidng">#CallForDelightsNow</span>
+
+    <div class="table-img">
+        <img class="img1" src="/media/{{dispProd.0.TransparentImage}}" alt="">
+        <img class="img2" src="/media/{{dispProd.1.TransparentImage}}" alt="">
+    </div>
+
+</div>
+
+
+<!-- Call For Now Section End -->
+
+
+
+<!-- Footer Section Start here-->
+
+
+<footer>
+    <div class="footer-content">
+        <ul class="ourLinks">
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+        </ul>
+
+        <ul class="socials">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+        
+        <div class="paymentSupports">
+            <p>Payment Supports</p>
+            <ul>
+                <li><i class="fab fa-google-pay"></i></li>
+                <li><i class="fab fa-paypal"></i></li>
+                <li><img src="{% static 'img/paytm.svg' %}" alt=""></li>
+            </ul>
+        </div>
+
+        <div class="theirLogo">
+            <img src="{% static 'img/theirLogo.jpg' %}" alt="">
+        </div>
+        
+    </div>
+
+    <div class="footer-bottom">
+        <p>@copyright &copy; 2021 BakedCakes. designed by <span>ME</span></p>
+    </div>
+
+<!-- Footer Section End here -->
+
 
 {% endblock content %}
 
 
+
+
+
+<!--Js Block Here-->
 {% block js %}
-    {% load static %}
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
     <script>
         document.onreadystatechange = function () {
             if (document.readyState == "interactive") {
                 changeBgColor('{{carousels.0.LightBackgroundColor}}','{{carousels.0.DarkBackgroundColor}}')
 
-            const activeThumb = document.querySelector('.thumblist');
+            const activeThumb = document.querySelector('ul.thumb li');
             activeThumb.classList.add('active');
-        
-            const thumb = document.querySelector('ul.thumb');
-            console.log(thumb)
             
             }
         }
