@@ -81,3 +81,7 @@ def SignUp(request):
 
     context = {'category':category,'form':form}
     return render(request,'Login.html',context)
+
+def Logout(request):
+    logout(request)
+    return redirect('login')

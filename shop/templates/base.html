@@ -47,7 +47,23 @@
                         </div>
                     </ul>
                 </li>
-                <li class="item"><a href="{% url 'login' %}" class="{% block activeLogin %}{% endblock activeLogin %}">Login / SignUp</a></li>
+                {% if request.user.is_authenticated %}
+                    <li class="item drop-down">
+                        <label for="btn-2" class="show">Welcome, {{request.user.username|capfirst}} <i class="fas fa-caret-down"></i></label>
+                        <a>Welcome, {{request.user.username|capfirst}} <i class="fas fa-caret-down"></i></a>
+                        <input class="toggle" type="checkbox" id="btn-2">
+                        <ul class="nav-list">
+                            <div class="bg"></div>
+                            <div class="lists">
+                                <li>
+                                    <li class="item"><a href="{% url 'logout' %}">Logout</a></li>
+                                </li>
+                            </div>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li class="item"><a href="{% url 'login' %}" class="{% block activeLogin %}{% endblock activeLogin %}">Login / SignUp</a></li>
+                {% endif %}
                 <li><a href="#" class="{% block activeCart %}{% endblock activeCart %}"><i class="fas fa-shopping-cart"></i></a></li>
             </ul>
         </nav>

@@ -170,6 +170,126 @@ nav .nav-items{
     color: #333;
 }
 
+/* message Failure Starts here */
+
+body{
+    overflow: hidden;
+}
+
+.message_failure{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    margin-left: 10px;
+    background-color: #f6e58d;
+    border-radius: 5px;
+    border-left: 6px solid #e0b106;
+    display: flex;
+    overflow: hidden;
+    z-index: 10000;
+}
+
+.message_failure.show{
+    animation: show_slide 1s ease forwards;
+}
+
+@keyframes show_slide{
+    0%{
+        transform: translateX(100%);
+    }
+    40%{
+        transform: translateX(-10%);
+    }
+    80%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-10px);
+    }
+}
+
+.message_failure.hide{
+    animation: hide_slide 1s ease forwards;
+}
+
+@keyframes hide_slide{
+    0%{
+        transform: translateX(-10px);
+    }
+    40%{
+        transform: translateX(0%);
+    }
+    80%{
+        transform: translateX(-10%);
+    }
+    100%{
+        transform: translateX(150%);
+    }
+}
+
+.errors{
+    display: flex;
+}
+
+.cross{
+    position: relative;
+    font-size: 30px;
+    color: #e0b106;
+    padding-left: 20px;
+}
+
+.cross i{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.msg{
+    font-size: 1rem;
+    margin: 0 25px;
+    padding: 20px 20px;
+}
+
+/* errorlist class coming from django variable */
+.errorlist > li{
+    list-style-type: none;
+    font-weight: bold;
+    padding: 5px 0;
+    color: #ae8904;
+    text-transform: capitalize;
+}
+
+.errorlist  li > ul > li{
+    list-style-type: disc;
+    font-weight: normal;
+    padding: 0;
+    text-transform: none;
+}
+
+/* errorlist modification ends here */
+
+.close:hover{
+    background-color: #c79d05;
+    color: #957604;
+}
+
+.close{
+    padding: 20px 20px;
+    background-color: #f9c406;
+    font-size: 30px;
+    color: #e0b106;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* message Failure Ends here */
+
+
 
 @media (max-width: 991px){
     .container{

@@ -59,9 +59,20 @@
         </div>
     </div>
 
+    {% if form.errors|length >= 1 %}
+    <div class="message_failure show">
+        <div class="errors">
+            <span class="cross"><i class="far fa-times-circle"></i></span>
+            <span class="msg">{{form.errors}}</span>
+        </div>
+        <span class="close"><i class="fas fa-times"></i></span>
+    </div>
+    {% endif %}
+
 {% endblock content %}
 
 {% block js %}
     <script src="{% static 'js/loginJs.js' %}"></script>
+    <script>
 {% endblock js %}
 
