@@ -22,7 +22,7 @@ signinBtn.onclick = function(){
     }
 }
 
-closeFailureMsg.onclick = function(){
+closeErrorMsg.onclick = function(){
     errorMsg.classList.remove('show')
     errorMsg.classList.add('hide')
 }
