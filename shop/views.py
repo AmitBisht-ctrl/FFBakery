@@ -1,12 +1,14 @@
+from django.conf.urls import url
 from django.shortcuts import render
 from shop.models import Category, Carousel, Product, SoldProduct
 import random
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
 from shop.forms import CreateUserForm
 from django.contrib.auth.models import Group
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
@@ -58,6 +60,7 @@ def Login(request):
 
         if user is not None:
             login(request, user)
+            messages.success(request,f'Welcome, {username.capitalize()}! to FFBakery.')
             return redirect('home')
     
     context = {'category':category,'form':form}
@@ -85,3 +88,7 @@ def SignUp(request):
 def Logout(request):
     logout(request)
     return redirect('login')
+
+@login_required(login_url='login')
+def cart(request):
+    return render(request, 'cart.html')

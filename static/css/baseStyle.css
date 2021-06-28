@@ -160,6 +160,100 @@ nav{
     display: none;
 }
 
+body{
+    position: relative;
+}
+
+/* Messages Starts Here */
+.allMsg{
+    display: flex;
+    flex-direction: column;
+}
+
+.messageBox{
+    width: 50%;
+    height: 4ch;
+
+    padding: 1ch 3ch;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    position: fixed;
+    top: 20%;
+    right: 10px;
+    z-index: 1000000;
+}
+
+.messageBox.hide{
+    animation: hideMsg 1s ease forwards;
+}
+
+@keyframes hideMsg{
+    20%{
+        transform: translateX(-10px);
+    }
+    40%{
+        transform: translateX(0%);
+    }
+    80%{
+        transform: translateX(-10%);
+    }
+    100%{
+        transform: translateX(150%);
+    }
+}
+
+.messageBox::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(126, 214, 223,0.5);
+    border: 1px solid #85d7e0;
+    border-left: 5px solid #2997a3;
+    border-right: 5px solid #2997a3;
+}
+
+.messageBox.success::before{
+    background-color: rgba(126, 214, 223,0.5);
+    border: 1px solid #85d7e0;
+    border-left: 5px solid #2997a3;
+    border-right: 5px solid #2997a3;
+}
+
+.messageBox.success{
+    color: #195e66;
+}
+
+.messageBox.error::before{
+    background-color: rgba(255, 128, 128, 0.5);
+    border: 1px solid #ff9999;
+    border-left: 5px solid #800000;
+    border-right: 5px solid #800000;
+}
+
+.messageBox.error{
+    color: #4d0000;
+}
+
+.messageBox.error .closeMessage{
+    color: #800000;
+}
+
+.messageBox .closeMessage{
+    color: #2997a3;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+
+
+/* Messages Ends Here */
+
 @media (max-width: 1050px){
     .icon{
         display: block;

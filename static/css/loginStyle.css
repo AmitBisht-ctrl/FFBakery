@@ -209,10 +209,10 @@ body{
 }
 
 .message_failure.hide{
-    animation: hide_slide 1s ease forwards;
+    animation: hide 1s ease forwards;
 }
 
-@keyframes hide_slide{
+@keyframes hide{
     0%{
         transform: translateX(-10px);
     }
@@ -223,7 +223,7 @@ body{
         transform: translateX(-10%);
     }
     100%{
-        transform: translateX(150%);
+        transform: translateX(100%);
     }
 }
 
@@ -247,7 +247,7 @@ body{
 }
 
 .msg{
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin: 0 25px;
     padding: 20px 20px;
 }

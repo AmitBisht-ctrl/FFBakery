@@ -64,10 +64,26 @@
                 {% else %}
                     <li class="item"><a href="{% url 'login' %}" class="{% block activeLogin %}{% endblock activeLogin %}">Login / SignUp</a></li>
                 {% endif %}
-                <li><a href="#" class="{% block activeCart %}{% endblock activeCart %}"><i class="fas fa-shopping-cart"></i></a></li>
+                <li><a href="{% url 'cart' %}" class="{% block activeCart %}{% endblock activeCart %}"><i class="fas fa-shopping-cart"></i></a></li>
             </ul>
         </nav>
     </header>
+
+    {% if messages %}
+    <ul class="allMsg">
+        {% for message in messages %}
+            <li class="messageBox {{message.error}}" id="messageBox{{forloop.counter}}">
+                <div class="messages">
+                    <span>{{message}}</span>
+                </div>
+                <div class="closeMessage" id="closeMessage{{forloop.counter}}">
+                    <i class="fas fa-times"></i>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    
     <!--Navbar ends HERE-->
 
 
@@ -77,8 +93,20 @@
 
 
     <!--JS HERE-->
+    <script>
+        {% for message in messages %}
+            const closeMsg{{forloop.counter}} = document.getElementById('closeMessage{{forloop.counter}}');
+            const messageBox{{forloop.counter}} = document.getElementById('messageBox{{forloop.counter}}');
+            
+            closeMsg{{forloop.counter}}.onclick = function(){
+                messageBox{{forloop.counter}}.classList.add('hide');
+                } 
+        {% endfor %}
+        
+    </script>
+    
     {% block js %}{% endblock js %}
 
 </body>
-
+    
 </html>

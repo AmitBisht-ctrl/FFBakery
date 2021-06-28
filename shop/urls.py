@@ -9,4 +9,5 @@ urlpatterns = [
     path('login/', Login, name='login'),
     path('signup/',SignUp, name='signup'),
     path('logout/',Logout, name='logout'),
+    path('cart/',cart, name='cart'),
 ]
