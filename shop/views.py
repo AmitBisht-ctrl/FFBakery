@@ -60,8 +60,31 @@ def about(request):
     context = {'category': category}
     return render(request, 'about.html',context)
 
-def category(request):
-    return render(request, 'category.html')
+def category(request, cat):
+    allCategory = Category.objects.all()
+    category = Category.objects.filter(category=cat).first()
+    notFound = None
+    allCatProd = []
+
+    if category:
+        allCatProd.append(Product.objects.filter(category=category))
+
+    elif cat == 'all':
+        for category in allCategory:
+            allCatProd.append(Product.objects.filter(category=category ))
+
+    else:
+        notFound = f'Sorry! We could not find anything related to <span>{cat}</span> :( You may check out these products.'
+        for category in allCategory:
+            allCatProd.append(Product.objects.filter(category=category ))
+
+
+    print(cat)
+    print(allCatProd)
+    print(notFound)
+    
+    context = {'allProducts': allCatProd, 'notFound': notFound ,'category':allCategory}
+    return render(request, 'category.html',context)
 
 def Login(request):
     category = Category.objects.all()
@@ -106,4 +129,5 @@ def Logout(request):
 
 @login_must
 def cart(request):
-    return render(request, 'cart.html')
+    messages.error(request, "Our Website is currently underdevelopment. We apologize for any inconvenience. But for now you may contact us directly for any orders through our contact page. Thank you for understanding and supporting us. <br> <button class='msgBtn'> <a href='/contact/'>Go to Contact Now</a></button>")
+    return redirect('home')

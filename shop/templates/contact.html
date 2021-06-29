@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-
+{% block title %}Contact{% endblock title %}
 
 {% load static %}
 
@@ -11,7 +11,7 @@
 <!--Category List Here-->
 {% block categories %}
 {% for cat in category %}
-<li><a href="">{{cat.category}}</a></li>
+<li><a href="/category/{{cat.category}}">{{cat.category}}</a></li>
 {% endfor %}
 {% endblock categories %}
 
@@ -57,24 +57,27 @@
                 <ul class="info">
                     <li>
                         <span><i class="fas fa-map-marked-alt"></i></span>
-                        <span>Address, Lorem ipsum dolor<br> elit. Ratione, laborum?</span>
+                        <span>Mayur Vihar Phase-1, Delhi</span>
                     </li>
                     <li>
-                        <span><i class="far fa-envelope"></i></span>
-                        <span>Abc123@gmail.com</span>
+                        <a href="mailto:mithisingh1403@gmail.com" target="_blank">
+                            <span><i class="far fa-envelope"></i></span>
+                            <span>mithisingh1403@gmail.com</span>
+                        </a>
                     </li>
                     <li>
-                        <span><i class="fas fa-phone-alt"></i></span>
-                        <span>+91-123-456789</span>
+                        <a href="tel:917289963485">
+                            <span><i class="fas fa-phone-alt"></i></span>
+                            <span> +91-9810652472</span>
+                        </a>
                     </li>
                 </ul>
             </div>
 
             <ul class="sci">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.facebook.com/FoodiesFootsteps-Bakery-105744934908208/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://wa.me/917289963485" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                <li><a href="https://www.instagram.com/foodiesfootstepsbakery/?utm_medium=copy_link" target="_blank"><i class="fab fa-instagram"></i></a></li>
             </ul>
 
         </div>

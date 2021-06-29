@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %}About{% endblock title %}
+
 {% load static %}
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/aboutStyle.css' %}">
@@ -8,7 +10,7 @@
 <!--Category List Here-->
 {% block categories %}
 {% for cat in category %}
-<li><a href="">{{cat.category}}</a></li>
+<li><a href="/category/{{cat.category}}">{{cat.category}}</a></li>
 {% endfor %}
 {% endblock categories %}
 

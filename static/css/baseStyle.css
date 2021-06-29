@@ -70,7 +70,8 @@ nav{
     top: 0;
     left: 1.5ch;
     
-    margin: 1ch 0.5ch 0.5ch 1ch;
+    display: flex;
+    align-items: center;
     
     font-size: 2rem;
     font-weight: 700;
@@ -188,9 +189,8 @@ body{
 
 .messageBox{
     width: 50%;
-    height: 4ch;
 
-    padding: 1ch 3ch;
+    padding: 1ch 4ch 1ch 3ch;
     display: flex;
     align-items: center;
     font-size: 0.9rem;
@@ -237,25 +237,25 @@ body{
 }
 
 .messageBox.success::before{
-    background-color: rgba(126, 214, 223,0.5);
+    background-color: rgba(126, 214, 223,0.7);
     border: 1px solid #85d7e0;
     border-left: 5px solid #2997a3;
     border-right: 5px solid #2997a3;
 }
 
 .messageBox.success{
-    color: #195e66;
+    color: rgba(25, 94, 102, 0.8);
 }
 
 .messageBox.error::before{
-    background-color: rgba(255, 128, 128, 0.5);
+    background-color: rgba(255, 128, 128, 0.7);
     border: 1px solid #ff9999;
     border-left: 5px solid #800000;
     border-right: 5px solid #800000;
 }
 
 .messageBox.error{
-    color: #4d0000;
+    color: rgba(128, 0, 0, 0.8);
 }
 
 .messageBox.error .closeMessage{
@@ -272,6 +272,16 @@ body{
 
 .messages span > span{
     font-weight: bold;
+}
+
+.messages{
+    z-index: 100;
+}
+
+.messages button{
+    border-radius: 15px;
+    padding: 3px 5px;
+    background: rgba(128, 0, 0, 0.8);
 }
 
 /* Messages Ends Here */
@@ -358,6 +368,8 @@ body{
     padding: 20px 20px;
 }
 
+
+
 /* errorlist class coming from django variable */
 .errorlist > li{
     list-style-type: none;
@@ -392,8 +404,11 @@ body{
     justify-content: center;
 }
 
-
 /* message Failure Ends here */
+
+
+
+
 
 @media (max-width: 1050px){
     .icon{

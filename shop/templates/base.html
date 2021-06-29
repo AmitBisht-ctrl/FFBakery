@@ -64,15 +64,20 @@
                 {% else %}
                     <li class="item"><a href="{% url 'login' %}" class="{% block activeLogin %}{% endblock activeLogin %}">Login / SignUp</a></li>
                 {% endif %}
-                <li><a href="{% url 'cart' %}" class="{% block activeCart %}{% endblock activeCart %}"><i class="fas fa-shopping-cart"></i></a></li>
+                <li><a href="{% url 'cart' %}" class="{% block activeCart %}{% endblock activeCart %}" id="cart"><i class="fas fa-shopping-cart"></i></a></li>
             </ul>
         </nav>
     </header>
+    
+    <!--Navbar ends HERE-->
 
+    
+
+    <!--General Messages-->
     {% if messages %}
     <ul class="allMsg">
         {% for message in messages %}
-            <li class="messageBox {{message.error}}" id="messageBox{{forloop.counter}}">
+            <li class="messageBox {{message.tags}}" id="messageBox{{forloop.counter}}">
                 <div class="messages">
                     <span>{{message|safe}}</span>
                 </div>
@@ -84,18 +89,18 @@
     </ul>
     {% endif %}
 
-        {% if form.errors|length >= 1 %}
-        <div class="message_failure show">
-            <div class="errors">
-                <span class="cross"><i class="far fa-times-circle"></i></span>
-                <span class="msg">{{form.errors}}</span>
-            </div>
-            <span class="close"><i class="fas fa-times"></i></span>
-        </div>
-        {% endif %}
-    
-    <!--Navbar ends HERE-->
 
+    <!--Form Errors-->
+    {% if form.errors|length >= 1 %}
+    <div class="message_failure show">
+        <div class="errors">
+            <span class="cross"><i class="far fa-times-circle"></i></span>
+            <span class="msg">{{form.errors}}</span>
+        </div>
+        <span class="close"><i class="fas fa-times"></i></span>
+    </div>
+    {% endif %}
+    
 
     <!--Content  HERE-->
     {% block content %}{% endblock content %}
@@ -104,6 +109,7 @@
 
     <!--JS HERE-->
     <script>
+        // General Messages
         {% for message in messages %}
             const closeMsg{{forloop.counter}} = document.getElementById('closeMessage{{forloop.counter}}');
             const messageBox{{forloop.counter}} = document.getElementById('messageBox{{forloop.counter}}');
@@ -122,6 +128,9 @@
             errorMsg.classList.remove('show')
             errorMsg.classList.add('hide')
         }
+
+        // Cart access
+        var cart = document.getElementById('cart')
 
         
     </script>

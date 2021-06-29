@@ -103,6 +103,19 @@ p:last-of-type{
 @media (max-width: 440px){
     .textBox{
         /* margin: auto 0ch 7ch; */
-        margin-inline: auto;
+        margin: inherit auto;
+    }
+
+    .heading{
+        margin: auto;
+        margin-top: 3.5ch;
+        padding: 1ch;
+        font-size: 2rem;
+    }
+    
+    .para{
+        margin: auto;
+        padding: 2ch;
+        font-size: 1rem;
     }
 }

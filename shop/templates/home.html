@@ -20,7 +20,7 @@
 <!--Category List Here-->
 {% block categories %}
 {% for cat in category %}
-<li><a href="">{{cat.category}}</a></li>
+<li><a href="/category/{{cat.category}}">{{cat.category}}</a></li>
 {% endfor %}
 {% endblock categories %}
 
@@ -56,9 +56,9 @@
 </section> 
 
 <ul class="socialIcon">
-    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-    <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+    <li><a href="https://www.facebook.com/FoodiesFootsteps-Bakery-105744934908208/"  target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+    <li><a href="https://www.instagram.com/foodiesfootstepsbakery/?utm_medium=copy_link"  target="_blank"><i class="fab fa-instagram"></i></a></li>
+    <li><a href="https://wa.me/917289963485" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
 </ul>
 
 <div class="categoryIcons">
@@ -66,10 +66,14 @@
     <ul>
         {% for cat in category %}
             <div class="cat_item">
-                <li>
-                    <img src="/media/{{cat.Image}}" alt="">
-                </li>
-                <span>{{cat.category}}</span>
+                <a href="/category/{{cat.category}}">
+                    <li>
+                        <img src="/media/{{cat.Image}}" alt="">
+                    </li>
+                </a>
+                <a href="/category/{{cat.category}}">
+                    <span>{{cat.category}}</span>
+                </a>
             </div>
         {% endfor %}
     </ul>
@@ -156,9 +160,9 @@
         </ul>
 
         <ul class="socials">
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
-            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.facebook.com/FoodiesFootsteps-Bakery-105744934908208/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://wa.me/917289963485" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+            <li><a href="https://www.instagram.com/foodiesfootstepsbakery/?utm_medium=copy_link" target="_blank"><i class="fab fa-instagram"></i></a></li>
         </ul>
         
         <div class="paymentSupports">

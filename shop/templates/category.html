@@ -1,1 +1,124 @@
 {% extends 'base.html' %}
+
+{% block title %}Category{% endblock title %}
+
+{% load static %}
+
+<!--CSS Link Here-->
+{% block css %}
+
+<!-- Link Swiper's CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+<link rel="stylesheet" href="{% static 'css/categoryStyle.css' %}">
+
+{% endblock css %}
+
+<!--Category List Here-->
+{% block categories %}
+{% for cat in category %}
+<li><a href="/category/{{cat.category}}">{{cat.category}}</a></li>
+{% endfor %}
+{% endblock categories %}
+
+{% block content %}
+
+    {% if notFound %}
+    <div class="notFound">
+        <p>{{notFound|safe}}</p>
+    </div>
+    {% endif %}
+
+
+    {% for products in allProducts %}
+    
+    <!-- category-Cake Section Starts here -->
+    <div class="heading"><span class="underLineHeading">{{products.0.category.category}}</span></div>
+
+    <!-- Swiper -->
+    <div class="cardContainer">
+        <div class="swiper-container mySwiper">
+            <div class="swiper-wrapper">
+
+                <!--First Slider here-->
+                {% for product in products %}
+                <div class="swiper-slide">
+
+                    <!-- img Section of card here -->
+                    <div class="slide-img">
+                        <img src="/media/{{product.ProductImage}}" alt="">
+
+                        <!-- on hover effect color  -->
+                        <div class="overlay">
+                            <a href="" class="buy-btn">Buy Now</a>
+                        </div>
+                    </div>
+
+                    <!-- details of Product here Inside the card -->
+                    <div class="detail-box">
+
+                        <div class="type">
+                            <a href="">{{product.ProductName}}</a>
+                            <span>Coming Soon</span>
+                        </div>
+
+                        <a href="" class="price">Rs.{{product.price}}</a>
+
+                    </div>
+
+                </div>
+                {% endfor %}
+                <!-- swiper slide end -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+
+        </div>
+        <!-- swiper Container end -->
+    </div>
+    <!-- cardContainer End -->
+
+    <!-- category-Cake Section Ends here -->
+
+    {% endfor %}
+
+
+{% endblock content %}
+
+
+{% block js %}
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- JS -->
+    <script>
+
+        // Swiper.js here
+        var swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            keyboard: true,
+            // mousewheel: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 5,
+                modifier: 1,
+                slideShadows: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            // loop: true,
+        });
+
+
+    </script>
+
+{% endblock js %}
