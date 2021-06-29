@@ -8,8 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 from shop.forms import CreateUserForm, ContactForm
 from django.contrib.auth.models import Group
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
-from shop.decorators import login_must
+from shop.decorators import login_must, already_logged
 
 # Create your views here.
 def home(request):
@@ -85,7 +84,8 @@ def category(request, cat):
     
     context = {'allProducts': allCatProd, 'notFound': notFound ,'category':allCategory}
     return render(request, 'category.html',context)
-
+    
+@already_logged
 def Login(request):
     category = Category.objects.all()
     form = CreateUserForm()

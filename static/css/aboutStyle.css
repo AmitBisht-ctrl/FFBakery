@@ -75,25 +75,6 @@
     padding: 0.5ch;
 }
 
-p:last-of-type{
-    /* margin-bottom: 100px; */
-}
-
-
-/* @media (max-width: 991px){
-    .textBox{
-        margin: auto 3ch 10ch;
-    }
-
-    .para{
-        margin: 1px 0px;
-    }
-    .heading{
-        margin: 1px 0px;
-    }
-    
-} */
-
 @media (max-width: 991px){
     .textBox{
         margin: auto 2ch 10ch;
