@@ -169,7 +169,7 @@ section.sec{
 
 .categoryIcons{
     width: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
     align-items: center;
     justify-content: center;
