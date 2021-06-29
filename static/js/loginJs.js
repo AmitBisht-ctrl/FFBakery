@@ -3,8 +3,7 @@ const signupBtn = document.querySelector('.signupBtn');
 const formBx = document.querySelector('.formBx');
 const body = document.querySelector('.body');
 const bg = document.querySelectorAll('.bg');
-var errorMsg = document.querySelector('.message_failure')
-var closeErrorMsg = document.querySelector('.close')
+
 
 signupBtn.onclick = function(){
     formBx.classList.add('active');
@@ -22,8 +21,4 @@ signinBtn.onclick = function(){
     }
 }
 
-closeErrorMsg.onclick = function(){
-    errorMsg.classList.remove('show')
-    errorMsg.classList.add('hide')
-}
 

@@ -74,7 +74,7 @@
         {% for message in messages %}
             <li class="messageBox {{message.error}}" id="messageBox{{forloop.counter}}">
                 <div class="messages">
-                    <span>{{message}}</span>
+                    <span>{{message|safe}}</span>
                 </div>
                 <div class="closeMessage" id="closeMessage{{forloop.counter}}">
                     <i class="fas fa-times"></i>
@@ -83,6 +83,16 @@
         {% endfor %}
     </ul>
     {% endif %}
+
+        {% if form.errors|length >= 1 %}
+        <div class="message_failure show">
+            <div class="errors">
+                <span class="cross"><i class="far fa-times-circle"></i></span>
+                <span class="msg">{{form.errors}}</span>
+            </div>
+            <span class="close"><i class="fas fa-times"></i></span>
+        </div>
+        {% endif %}
     
     <!--Navbar ends HERE-->
 
@@ -102,6 +112,17 @@
                 messageBox{{forloop.counter}}.classList.add('hide');
                 } 
         {% endfor %}
+
+
+        // form error Msg 
+        var errorMsg = document.querySelector('.message_failure')
+        var closeErrorMsg = document.querySelector('.close')
+
+        closeErrorMsg.onclick = function(){
+            errorMsg.classList.remove('show')
+            errorMsg.classList.add('hide')
+        }
+
         
     </script>
     

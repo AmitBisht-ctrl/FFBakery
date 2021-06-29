@@ -5,10 +5,11 @@ import random
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from shop.forms import CreateUserForm
+from shop.forms import CreateUserForm, ContactForm
 from django.contrib.auth.models import Group
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from shop.decorators import login_must
 
 # Create your views here.
 def home(request):
@@ -40,10 +41,24 @@ def home(request):
     return render(request, 'home.html',context)
 
 def contact(request):
-    return render(request, 'contact.html')
+    form = ContactForm()
+    category = Category.objects.all()
+
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    
+    context = {'form': form, 'category':category}
+    return render(request, 'contact.html', context)
 
 def about(request):
-    return render(request, 'about.html')
+    category = Category.objects.all()
+
+    context = {'category': category}
+    return render(request, 'about.html',context)
 
 def category(request):
     return render(request, 'category.html')
@@ -60,7 +75,7 @@ def Login(request):
 
         if user is not None:
             login(request, user)
-            messages.success(request,f'Welcome, {username.capitalize()}! to FFBakery.')
+            messages.success(request,f'<span>Welcome, {username.capitalize()}!</span> to FFBakery.')
             return redirect('home')
     
     context = {'category':category,'form':form}
@@ -79,7 +94,7 @@ def SignUp(request):
             user.groups.add(group)
             
             username = form.cleaned_data.get('username')
-            messages.success(request,'Account was Created For ' + username)
+            messages.success(request,f'Account has been Created For <span>{username}</span>')
             return redirect('login')
 
     context = {'category':category,'form':form}
@@ -89,6 +104,6 @@ def Logout(request):
     logout(request)
     return redirect('login')
 
-@login_required(login_url='login')
+@login_must
 def cart(request):
     return render(request, 'cart.html')

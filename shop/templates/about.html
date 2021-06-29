@@ -1,1 +1,46 @@
 {% extends 'base.html' %}
+
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/aboutStyle.css' %}">
+{% endblock css %}
+
+<!--Category List Here-->
+{% block categories %}
+{% for cat in category %}
+<li><a href="">{{cat.category}}</a></li>
+{% endfor %}
+{% endblock categories %}
+
+
+
+{% block content %}
+
+    <div class="body">
+        <div class="imgBox">
+            <img src="{% static 'img/theirLogo.jpg' %}" alt="">
+        </div>
+        
+        <div class="textBox">
+            <h2 class="heading">Foodies FootSteps Bakery</h2>
+            <div class="para">
+        
+                <p>Foodies Footsteps Bakery was established officially on November 14, 2020.</p><br>
+                <p>It's a Home Bakery, started by Mithi Singh who is 21-year-old and loves baking cakes. The name of the bakery was influenced by the name of the parent blog @Foodies_Footsteps_, which is a Food blog. This was done to gain recognition and remembrance from the audience easily as the parent blog already has good number of followers and people also known the name @Foodies_Footsteps_ </p><br>
+                <p>FF Bakery's Cakes' are eggless</p>
+            </div>
+            <h2 class="heading">Motive</h2>
+        
+            <div class="para">
+                <p>Our prime motive is to provide superior quality cake that is made of 100% authentic quality ingredients.</p><br>
+                <p>We are open to all kind of customization for cakes so that we can satisfy customer to the fullest.</p>
+            </div>
+            <h2 class="heading">Deliveries Available In</h2>
+            <div class="para">
+                <p>Currently we are delivering in specified area which includes, Delhi, Noida, Ghaziabad,Vaishali, Indirapuram</p>
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %}
+
