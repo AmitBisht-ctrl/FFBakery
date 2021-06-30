@@ -1,0 +1,194 @@
+/* Not Found starts here */
+.notFound{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ecf0f1;
+    color: burlywood;
+    padding: 3ch 0;
+    font-weight: normal;
+    font-size: 1.5rem;
+}
+
+.notFound span{
+    font-weight: bold;
+}
+
+.notFound h1{
+    max-width: 80%;
+    text-align: center;
+}
+
+/* Not Found ends here */
+
+/* NavBar adjustment starts here */
+nav{
+    color: black;
+}
+
+.bg{
+    background-color: rgb(141, 115, 75);
+}
+
+.bg::before{
+    content: none;
+}
+
+/* NavBar adjustment ends here */
+
+.heading{
+    padding: 40px 0;
+    text-align: center;
+    font-weight: 700;
+    color:burlywood;
+    background-color: #ecf0f1;
+    font-size: 3em;
+    font-family: poppins,sans-serif;
+}
+
+.underLineHeading{
+    border-bottom: 2px burlywood solid;
+}
+
+
+
+/* the Swiper Section inside the Trending Section*/
+
+.swiper-container .swiper-wrapper .swiper-slide a{
+    text-decoration: none;
+}
+
+.swiper-container-3d .swiper-slide-shadow-right,
+.swiper-container-3d .swiper-slide-shadow-left {
+    background-image: none;
+}
+
+.cardContainer{
+    position: relative;
+    min-width: 100%;
+    background-color: #ecf0f1;
+    padding-bottom: 5%;
+}
+
+.swiper-slide {
+    width: 300px;
+    min-height: 400px;
+    margin: 30px 20px;
+    border-radius: 10px;
+    background-color: #eee;
+    overflow: hidden;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.3);
+
+    /* May need these values */
+    position: relative;
+
+}
+
+
+
+
+/* card here */
+
+.swiper-slide .slide-img{
+    height: 450px;
+    position: relative;
+}
+
+.swiper-slide .slide-img img{
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    box-sizing: border-box;
+}
+
+.swiper-slide .detail-box{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    font-family: Calibri;
+}
+
+.type{
+    display: flex;
+    flex-direction: column;
+}
+
+.type a{
+    color: #222222;
+    margin: 5px 0px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    padding-right: 8px;
+}
+
+.type span{
+    color: rgba(26, 26, 26, 0.7);
+}
+
+.price{
+    color: #333333;
+    font-weight: 600;
+    font-size: 1.1rem;
+    font-family: poppins;
+    letter-spacing: 0.5px;
+}
+
+.overlay{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buy-btn{
+    width: 160px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: center;
+    background: #fff;
+    color: #252525;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-family: calibri;
+    border-radius: 20px;
+}
+
+.buy-btn:hover{
+    color: #fff;
+    background-color: rgb(255, 107, 129);
+    transition: all ease 0.3s;
+}
+
+.overlay{
+    visibility: hidden;
+}
+
+.slide-img:hover .overlay{
+    visibility: visible;
+    animation: fade 0.5s;
+}
+
+@keyframes fade{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+/* Trending Section Ends here */

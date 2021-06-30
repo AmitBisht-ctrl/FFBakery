@@ -33,7 +33,14 @@ def home(request):
         if present == False:
             bestSeller.append([1,sp.product,sp.product])
 
-    bestSeller.sort(reverse=True)
+    # sorted first 4 elements
+    length = len(bestSeller)
+    for i in range(4):
+        for num in range(i, length):
+            if bestSeller[i][0] < bestSeller[num][0]:
+                bestSeller[i], bestSeller[num] = bestSeller[num], bestSeller[i]
+
+    print(bestSeller)
     bestSeller = [bs[1] for bs in bestSeller]
 
     context = {'category': category, 'carousels':carousels, 'bestsellers':bestSeller[:4], 'dispProd':dispProd}
