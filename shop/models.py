@@ -1,11 +1,12 @@
 from django.db import models
 from django.utils.timezone import now
 from django.contrib.auth.models import User
-from django.core.validators import RegexValidator
+# from django.core.validators import RegexValidator
 
 # Create your models here.
-EMAIL_VALIDATOR = RegexValidator()
-PHONE_NUMBER_REGEX = RegexValidator(r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$', 'Please provide a valid phone number')
+
+# EMAIL_VALIDATOR = RegexValidator()
+# PHONE_NUMBER_REGEX = RegexValidator(r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$', 'Please provide a valid phone number')
 
 class Category(models.Model):
     sno = models.AutoField(primary_key=True)

@@ -14,13 +14,14 @@ from shop.decorators import login_must, already_logged
 def home(request):
     category = Category.objects.all()
     carouselList = Carousel.objects.all()
-
+    print(carouselList)
     carouselIndex = random.sample(range(0,len(carouselList)), k=4)
 
     carousels = [carouselList[idx] for idx in carouselIndex]
     dispProd = random.sample(carousels, k=2)
 
     allSoldProd = SoldProduct.objects.all()
+    print(allSoldProd)
     bestSeller = []
     for sp in allSoldProd:
         present = False
@@ -40,7 +41,7 @@ def home(request):
             if bestSeller[i][0] < bestSeller[num][0]:
                 bestSeller[i], bestSeller[num] = bestSeller[num], bestSeller[i]
 
-    print(bestSeller)
+    # print(bestSeller)
     bestSeller = [bs[1] for bs in bestSeller]
 
     context = {'category': category, 'carousels':carousels, 'bestsellers':bestSeller[:4], 'dispProd':dispProd}

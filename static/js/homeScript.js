@@ -20,8 +20,6 @@ function changeBgColor(color,darkcolor){
     slider.style.transition = '1s ease';
 }
 
-
-
 // add active class in selected thumbnails
 let el = document.querySelectorAll('.thumb li');
 for (let i = 0; i < el.length; i++){
@@ -33,6 +31,7 @@ for (let i = 0; i < el.length; i++){
     el[i].className = 'check active'
     }
 }
+
 
 // Swiper.js here
 var swiper = new Swiper(".mySwiper", {

@@ -317,6 +317,7 @@ div.categoryIcons .circle::before{
     min-width: 100%;
     background-color: #ecf0f1;
     padding-bottom: 5%;
+    overflow: hidden;
 }
 
 .swiper-slide {
